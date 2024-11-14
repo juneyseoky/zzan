@@ -45,7 +45,6 @@
 							</ul>
 						</li>
 					</ul>
-					<div id="subMenus"></div>
 				</div>
 			</div>
 		</header>

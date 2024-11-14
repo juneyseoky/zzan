@@ -62,9 +62,11 @@
 				<span>lasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
 			</div>
 			<div id="adminArea">
-				<a href="#"><img alt="" src="/images/goAdmin_200.jpg"></a>
+				<a href="#" onclick="goAdmin()"><img alt="" src="/images/goAdmin_200.jpg"></a>
 			</div>
 		</footer>
 	</div>
+	<script src="/source/jquery-3.6.0.min.js"></script>
+	<script src="/script/script.js"></script>
 </body>
 </html>

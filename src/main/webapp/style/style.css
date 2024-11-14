@@ -47,8 +47,9 @@ li {
 	text-align: center;
 }
 
-#mainMenu ul.subMenus {
-	display: none; position : absolute;
+#mainMenu .subMenus {
+	display: none; 
+	position : absolute;
 	border: 1px solid #000;
 	top: 33px;
 	left: -2px;
