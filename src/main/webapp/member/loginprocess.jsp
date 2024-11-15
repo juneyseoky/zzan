@@ -18,7 +18,7 @@
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(Url, uId, uPw);
         
-        String sql = "SELECT * FROM tblboard WHERE mId = ? AND mPw = ?";
+        String sql = "SELECT * FROM member WHERE mId = ? AND mPw = ?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, userId);
         pstmt.setString(2, password);
@@ -27,7 +27,11 @@
         if (rs.next()) {
             loginSuccess = true;
             session.setAttribute("userId", userId);
-            response.sendRedirect("index.jsp");
+%>
+<script>
+	location.href = "/index.jsp";
+</script>
+<%            
         } else {
             out.println("<script>alert('아이디 또는 비밀번호가 잘못되었습니다.'); history.back();</script>");
         }

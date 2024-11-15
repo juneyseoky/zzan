@@ -15,6 +15,9 @@ $(function() {
 		location.href = path;
 	});
 	
+	$("#loginbtn").click(function(){
+		location.href = "/member/Login.jsp";
+	});
 	$("#writeBtn").click(function(){
 		location.href = "/bbs/write.jsp";
 	});

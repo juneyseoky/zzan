@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
-    <link rel="stylesheet" href="style/loginStyle.css">
+    <link rel="stylesheet" href="/style/loginStyle.css">
 </head>
 <body>
     <div id="wrap">
         <!-- 헤더 템플릿 포함 -->
-        <%@ include file="ind/header.jsp" %>
+        <%@ include file="/ind/header.jsp" %>
         
         <main id="main" class="dFlex">
             <div id="Login_wrap">
@@ -26,13 +26,13 @@
                         <div class="login_con">
                             <!-- 아이디 입력 -->
                             <div class="login_id">
-                                <span><img src="images/ID이미지.jpg" alt="id로고"></span>
+                                <span><img src="/images/ID이미지.jpg" alt="id로고"></span>
                                 <input type="text" name="userId" id="userId" placeholder="아이디" required>
                             </div>
                             
                             <!-- 비밀번호 입력 -->
                             <div class="login_pw">
-                                <span><img src="images/pwimg.jpg" alt="비밀번호 이미지"></span>
+                                <span><img src="/images/pwimg.jpg" alt="비밀번호 이미지"></span>
                                 <input type="password" name="password" id="password" placeholder="비밀번호" required>
                             </div>
                             
