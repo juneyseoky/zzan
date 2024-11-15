@@ -8,10 +8,10 @@
 <link rel="stylesheet" href="/style/admin_style.css">
 </head>
 <body>
-	<div id="wrap">
+	<div id="wrap" class="adminLogin">
 		<h1>Login</h1>
 		<hr>
-		<div id="formArea">
+		<div id="adminFormArea">
 			<form action="/admin/ad_LoginProc.jsp" method="post">
 				<label>
 					<input type="text" name="id" placeholder="ID를 입력하세요."autofocus>
