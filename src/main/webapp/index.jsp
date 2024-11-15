@@ -38,7 +38,7 @@
 				</div>
 				<div id="item">
 					<div class="itemImgArea">
-						<img src="/images/wisky/Imperial19.png" alt="itemImg">
+						<img src="/images/wisky/Imperial19.jpg" alt="itemImg">
 					</div>
 					<div class="itemTxtarea">
 						<span>임페리얼 19년</span> <span>180000원</span>
