@@ -3,42 +3,43 @@ package pkg.dto;
 import java.sql.Timestamp;
 
 public class bbsBean {
-	private int bNum;
-	private String bTitle;
-	private String bContent;
-	private String bMemId;
-	private Timestamp bRegTM;
+	private int idx;
+	private String title;
+	private String content;
+	private String id;
+	private Timestamp regTM;
 	
-	public int getbNum() {
-		return bNum;
+	public int getIdx() {
+		return idx;
 	}
-	public void setbNum(int bNum) {
-		this.bNum = bNum;
+	public void setIdx(int idx) {
+		this.idx = idx;
 	}
-	public String getbTitle() {
-		return bTitle;
+	public String getTitle() {
+		return title;
 	}
-	public void setbTitle(String bTitle) {
-		this.bTitle = bTitle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getbContent() {
-		return bContent;
+	public String getContent() {
+		return content;
 	}
-	public void setbContent(String bContent) {
-		this.bContent = bContent;
+	public void setContent(String content) {
+		this.content = content;
 	}
-	public String getbMemId() {
-		return bMemId;
+	public String getId() {
+		return id;
 	}
-	public void setbMemId(String bMemId) {
-		this.bMemId = bMemId;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public Timestamp getbRegTM() {
-		return bRegTM;
+	public Timestamp getRegTM() {
+		return regTM;
 	}
-	public void setbRegTM(Timestamp bRegTM) {
-		this.bRegTM = bRegTM;
+	public void setRegTM(Timestamp regTM) {
+		this.regTM = regTM;
 	}
+	
 	
 	
 }

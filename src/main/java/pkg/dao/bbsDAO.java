@@ -22,18 +22,19 @@ public class bbsDAO {
 		List<bbsBean> list = new ArrayList<bbsBean>();
 		try {
 			conn = DBCP.DBconnection();
-			String sql = "select * from BBS order by bNum desc";
+			String sql = "select * from BBS order by idx desc";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {
-				bbsBean bbs = new bbsBean();
-				bbs.setbNum(rs.getInt("bNum"));
-				bbs.setbTitle(rs.getString("bTitle"));
-				bbs.setbContent(rs.getString("bContent"));
-				bbs.setbMemId(rs.getString("bMemId"));
-				bbs.setbRegTM(rs.getTimestamp("bRegTM"));				
-				list.add(bbs);
+				bbsBean bean = new bbsBean();
+				System.out.println("bbs실행");
+				bean.setIdx(rs.getInt("idx"));
+				bean.setTitle(rs.getString("title"));
+				bean.setContent(rs.getString("content"));
+				bean.setId(rs.getString("id"));
+				bean.setRegTM(rs.getTimestamp("regTM"));				
+				list.add(bean);
 			}
 			
 		}catch(Exception e) {
@@ -44,16 +45,34 @@ public class bbsDAO {
 		return list;
 	}
 	
+	public int bbsCount() {
+		int cnt = 0;
+		try {
+			conn= DBCP.DBconnection();
+			String sql = "select count(*) from bbs";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if(rs.next()) cnt = rs.getInt(1);
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			daoClose();
+		}
+		
+		return cnt;
+	}
+	
 	public boolean insertBBS(HttpServletRequest req) {
 		boolean chk = false;
 		try {
 			conn = DBCP.DBconnection();
-			String sql = "insert into bbs (bTitle, bContent, bMemId) ";
+			String sql = "insert into bbs (title, content, id) ";
 				sql += "values (?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, req.getParameter("bTitle"));
-			pstmt.setString(2, req.getParameter("bContent"));
-			pstmt.setString(3, req.getParameter("bMemId"));
+			pstmt.setString(1, req.getParameter("title"));
+			pstmt.setString(2, req.getParameter("content"));
+			pstmt.setString(3, req.getParameter("id"));
 			int rntNum = pstmt.executeUpdate();
 			if(rntNum == 1) {
 				System.out.println("글입력 성공");
@@ -68,6 +87,80 @@ public class bbsDAO {
 		
 		return chk;
 	}
+	
+	public void selectContent(String idx) {
+		bbsBean bean = new bbsBean();
+		try {
+			conn = DBCP.DBconnection();
+			String sql = "select * from bbs where idx = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, idx);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				bean.setIdx(rs.getInt("idx"));
+				bean.setContent(rs.getString("content"));
+				bean.setId(rs.getString("id"));
+				bean.setTitle(rs.getString("title"));
+				bean.setRegTM(rs.getTimestamp("regTM"));
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			daoClose();
+		}
+		
+	}
+	
+	// 공지사항 시작
+	public List<bbsBean> selectNotice(){
+		List<bbsBean> list = new ArrayList<bbsBean>();
+		try {
+			conn = DBCP.DBconnection();
+			String sql = "select * from notice order by idx desc";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				bbsBean bean = new bbsBean();
+				System.out.println("노티스 실행");
+				bean.setIdx(rs.getInt("idx"));
+				bean.setTitle(rs.getString("title"));
+				bean.setContent(rs.getString("content"));
+				bean.setId(rs.getString("id"));
+				bean.setRegTM(rs.getTimestamp("regTM"));				
+				list.add(bean);
+			}
+			
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			daoClose();
+		}
+		return list;
+	}
+	
+	public int noticeCount() {
+		int cnt = 0;
+		try {
+			conn= DBCP.DBconnection();
+			String sql = "select count(*) from notice";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if(rs.next()) cnt = rs.getInt(1);
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			daoClose();
+		}
+		
+		return cnt;
+	}
+	
+	
+	
+	// 공지사항 끝
 
 	public void daoClose() {
 		try {

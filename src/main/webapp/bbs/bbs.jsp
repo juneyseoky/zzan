@@ -3,6 +3,13 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:useBean id="dao" class="pkg.dao.memberDAO"/>
+<%
+String pageType =request.getParameter("pageType");
+String mId = (String) session.getAttribute("userId");
+List<bbsBean> list = null;
+int cnt = 0;
+%>
 <jsp:useBean id="bbs" class="pkg.dao.bbsDAO" />
 <!DOCTYPE  html>
 <html lang="ko">
@@ -23,9 +30,19 @@
 		<%@  include file="/ind/header.jsp"%>
 		<main id="main" class="dFlex">
 			<div id="contents" class="bbsList">
+		<%if(pageType.equals("bbs")){
+			list = bbs.selectBBS();
+			cnt = bbs.bbsCount();
+		%>
+				<h1>문의하기</h1>
+		<%}else { 
+			list = bbs.selectNotice();
+			cnt = bbs.noticeCount();
+		%>
 				<h1>공지사항</h1>
+		<%}%>
 				<div id="pageInfo" class="dFlex">
-					<span> 개</span> <span>페이지 : </span>
+					<span> <%=cnt %>개</span> <span>페이지 : </span>
 				</div>
 				<table id="boardList">
 					<thead>
@@ -42,19 +59,21 @@
 					</thead>
 					<tbody>
 <%
-List<bbsBean> bbsList = bbs.selectBBS();
 
-for (int i = 0; i < bbsList.size(); i++) {
-	  bbsBean bean = bbsList.get(i);
-	  int bNum = bean.getbNum();
-	  String bTitle = bean.getbTitle();
-	  String bMemId = bean.getbMemId();
-	  Timestamp regTM = bean.getbRegTM();
+
+for (int i = 0; i < list.size(); i++) {
+	  bbsBean bean = list.get(i);
+	  int idx = bean.getIdx();
+	  String title = bean.getTitle();
+	  String id = bean.getId();
+	  String mName = dao.getMemberName(id);
+	  if(mName.equals("")) mName = dao.getAdminName(id);
+	  Timestamp regTM = bean.getRegTM();
 %>
-						<tr class="prnTr">
-							<td><%=bNum%></td>
-							<td class="subjectTd"><%=bTitle %></td>
-							<td><%=bMemId %></td>
+						<tr class="prnTr" onclick="read(<%=idx%>)">
+							<td><%=idx%></td>
+							<td class="subjectTd"><%=title%></td>
+							<td><%=mName%></td>
 							<td><%=regTM %></td>
 							<td>0</td>
 						</tr>
@@ -63,7 +82,12 @@ for (int i = 0; i < bbsList.size(); i++) {
 %>
 						<tr id="listBtnArea">
 							<td colspan="2">
-								<button type="button" id="writeBtn" class="listBtnStyle">글쓰기</button>
+							<%if(pageType.equals("bbs")){
+
+		%>
+				<button type="button" id="writeBtn" class="listBtnStyle">글쓰기</button>
+		<%}%>
+								
 							</td>
 						</tr>
 					</tbody>
