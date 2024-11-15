@@ -6,7 +6,11 @@
 					<input type="text" id="searchKey" name="search">
 					<button>검색</button>
 				</div>
+<<<<<<< HEAD
 				<a href="/index.jsp"><img alt="Logo" src="/images/Logo-removebg.png"></a>
+=======
+				<a href="/index.jsp"><img alt="Logo" src="images/Logo.jpg"></a>
+>>>>>>> refs/remotes/origin/K-jj
 				<div id="btnArea">
 					<button>장바구니</button>
 					<button>회원가입</button>
