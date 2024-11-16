@@ -25,28 +25,32 @@ String uId_Session = (String) session.getAttribute("userId");
 	<div id="h_bottom" class="dFlex">
 		<div id="mainMenus">
 			<ul id="mainMenu" class="dFlex">
-				<li id="whisy" class="product">위스키
-					<ul class="subMenus">
-						<li>임페리얼</li>
-						<li>패스포트</li>
-					</ul>
-				</li>
-				<li id="wine" class="product">와인
-					<ul class="subMenus">
-						<li>무똥까네</li>
-					</ul>
-				</li>
-				<li id="bodca" class="product">보드카
-					<ul class="subMenus">
-						<li>앱솔루트</li>
-					</ul>
-				</li>
-				<li id="sake" class="product">전통주
-					<ul class="subMenus">
-						<li>고운달</li>
-						<li>문배</li>
-					</ul>
-				</li>
+				 <!-- 기존의 '위스키' 메뉴 항목 -->
+                <li><a href="../showcase/Whiskey_productList.jsp">위스키</a>
+                    <ul class="subMenus">
+                        <li>임페리얼</li>
+                        <li>패스포트</li>
+                    </ul>
+                </li>
+                <!-- 새로 추가한 '와인' 메뉴 항목 -->
+                <li><a href="../showcase/Wine_productList.jsp">와인</a>
+                    <ul class="subMenus">
+                        <li>무똥까네</li>
+                    </ul>
+                </li>
+                <!-- 새로 추가한 '보드카' 메뉴 항목 -->
+                <li><a href="../showcase/Vodka_productList.jsp">보드카</a>
+                    <ul class="subMenus">
+                        <li>앱솔루트</li>
+                    </ul>
+                </li>
+                <!-- 새로 추가한 '전통주' 메뉴 항목 -->
+                <li><a href="../showcase/traditional_productList.jsp">전통주</a>
+                    <ul class="subMenus">
+                        <li>고운달</li>
+                        <li>문배</li>
+                    </ul>
+                </li>
 				<li id="board" class="bbs">게시판
 					<ul class="subMenus">
 						<li id="notice">공지사항</li>

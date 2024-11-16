@@ -42,7 +42,11 @@ String uId_Session = (String) session.getAttribute("userId");
 				</div>
 				<div id="item">
 					<div class="itemImgArea">
+<<<<<<< HEAD
 						<img src="/images/whisky/Imperial19.png" alt="itemImg">
+=======
+						<img src="/images/wisky/Imperial19.jpg" alt="itemImg">
+>>>>>>> refs/remotes/origin/minho
 					</div>
 					<div class="itemTxtarea">
 						<span>임페리얼 19년</span> <span>180000원</span>
