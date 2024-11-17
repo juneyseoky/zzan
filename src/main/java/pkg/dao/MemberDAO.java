@@ -25,8 +25,8 @@ public class MemberDAO {
 		try {
 			conn = DBCP.DBconnection();
 			String sql = "insert into member(";
-			sql += "mId, mPw, mName, mBirthday, mAddr, mEmail, mPhone, regTM) values (";
-			sql += "?, ?, ?, ?, ?, ?, ?, now()";
+			sql += "mId, mPw, mName, mBirthday, mAddr, mEmail, mPhone) values (";
+			sql += "?, ?, ?, ?, ?, ?, ?";
 			sql += ")";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberDto.getmId());

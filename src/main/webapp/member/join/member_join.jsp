@@ -15,7 +15,7 @@
 		<!-- 헤더 템플릿 포함 -->
         <%@ include file="/ind/header.jsp" %>
         <div class="join_area">
-		    <form name="form" action="/" method="post" onsubmit="return validateForm()">
+		    <form name="form" action="/member/join/joinProc.jsp" method="post" onsubmit="return validateForm()">
 		        <h1>회원가입</h1>
 		        <h2><span style="color:#ff0000;">*</span>회원정보</h2>
 		        

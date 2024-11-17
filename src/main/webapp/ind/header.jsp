@@ -54,8 +54,8 @@ String uId_Session = (String) session.getAttribute("userId");
                 </li>
 				<li id="board" class="bbs">게시판
 					<ul class="subMenus">
-						<li id="notice">공지사항</li>
-						<li id="bbs">문의사항</li>
+						<li class="notice">공지사항</li>
+						<li class="bbs">문의사항</li>
 					</ul>
 				</li>
 			</ul>

@@ -62,7 +62,7 @@
 		</div>
 		<jsp:include page="/ind/footer.jsp" />
 	</div>
-	<script src="script/jquery-3.7.1.min.js"></script>
-	<script src="script/script.js"></script>
+	<script src="/script/jquery-3.7.1.min.js"></script>
+	<script src="/script/script.js"></script>
 </body>
 </html>

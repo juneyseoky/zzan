@@ -22,17 +22,26 @@ $(function() {
 	);
 	
 	$("li").click(function(){
-		let attrId = $(this).attr("class");
-		location.href = "/showcase/productList.jsp?productType="+attrId;
+		if ($(this).closest("ul").hasClass("subMenus")) {
+        let attrId = $(this).attr("class");
+
+        if(attrId == "bbs"){
+            location.href = "/bbs/bbs.jsp?pageType=bbs";
+        }else if(attrId == "notice"){
+            location.href = "/bbs/bbs.jsp?pageType=notice";
+        }else{
+            location.href = "/showcase/productList.jsp?productType=" + attrId;    
+        }
+    }
 	});
 	
 
-	$("ul.subMenus>li").click(function() {
-		let pageType = $(this).attr("id");
-		let folderName =  $(this).parent().parent().attr("class");
-		let path = "/"+folderName+"/"+folderName+".jsp?pageType="+pageType;
-		location.href = path;
-	});
+//	$("ul.subMenus>li").click(function() {
+//		let pageType = $(this).attr("id");
+//		let folderName =  $(this).parent().parent().attr("class");
+//		let path = "/"+folderName+"/"+folderName+".jsp?pageType="+pageType;
+//		location.href = path;
+//	});
 	$("#cart").click(function(){
 		location.href = "/cart/shoppingBasket.jsp";
 	});
