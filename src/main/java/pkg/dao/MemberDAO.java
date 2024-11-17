@@ -15,7 +15,7 @@ import pkg.dto.MemberDTO;
 public class MemberDAO {
 	Connection conn = null;
 	Statement stmt = null;
-	ResultSet objRS = null;
+	ResultSet rs = null;
 	PreparedStatement pstmt = null;
 	DBCP dbcp = null;
 	
@@ -95,4 +95,51 @@ public class MemberDAO {
 		return mBean;
 	}
 	*/
+	public String getMemberName(String id) {
+		String mName = "";
+		
+		try {
+			conn = DBCP.DBconnection();
+			String sql = "select mName from member where mId = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) mName = rs.getString(1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			daoClose();
+		}
+		
+		return mName;
+	}
+	
+	public String getAdminName(String id) {
+		String mName = "";
+		
+		try {
+			conn = DBCP.DBconnection();
+			String sql = "select name from admin where id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) mName = rs.getString(1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			daoClose();
+		}
+		
+		return mName;
+	}
+	public void daoClose() {
+		try {
+			if(conn != null) conn.close();
+			if(stmt != null) stmt.close();
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+		}catch(Exception e) {}
+	}
 }
