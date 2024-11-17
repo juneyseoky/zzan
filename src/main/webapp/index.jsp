@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+String uId_Session = (String) session.getAttribute("userId");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +25,7 @@
 			<div id="itemListArea" class="dFlex">
 				<div id="item">
 					<div class="itemImgArea">
-						<img src="/images/wisky/Imperial17.jpg" alt="itemImg">
+						<img src="/images/whisky/Imperial17.jpg" alt="itemImg">
 					</div>
 					<div class="itemTxtarea">
 						<span>임페리얼 17년</span> <span>120000원</span>
@@ -30,7 +33,7 @@
 				</div>
 				<div id="item">
 					<div class="itemImgArea">
-						<img src="/images/wisky/Imperial17.jpg" alt="itemImg">
+						<img src="/images/whisky/Imperial17.jpg" alt="itemImg">
 					</div>
 					<div class="itemTxtarea">
 						<span>임페리얼 17년</span> <span>120000원</span>
@@ -38,7 +41,7 @@
 				</div>
 				<div id="item">
 					<div class="itemImgArea">
-						<img src="/images/wisky/Imperial19.png" alt="itemImg">
+						<img src="/images/whisky/Imperial19.png" alt="itemImg">
 					</div>
 					<div class="itemTxtarea">
 						<span>임페리얼 19년</span> <span>180000원</span>
@@ -46,7 +49,7 @@
 				</div>
 				<div id="item">
 					<div class="itemImgArea">
-						<img src="/images/wisky/Imperial21.jpg" alt="itemImg">
+						<img src="/images/whisky/Imperial21.jpg" alt="itemImg">
 					</div>
 					<div class="itemTxtarea">
 						<span>임페리얼 21년</span> <span>240000원</span>
@@ -54,17 +57,9 @@
 				</div>
 			</div>
 		</main>
-		<footer id="footer" class="dFlex">
-			<div id="LogoArea">
-				<img src="/images/Logo.jpg" alt="Logo">
-			</div>
-			<div id="footerTxtArea">
-				<span>lasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
-			</div>
-			<div id="adminArea">
-				<a href="#"><img alt="" src="/images/goAdmin_200.jpg"></a>
-			</div>
-		</footer>
+		<jsp:include page="/ind/footer.jsp"/>
 	</div>
+	<script src="/script/jquery-3.7.1.min.js"></script>
+	<script src="/script/script.js"></script>
 </body>
 </html>
