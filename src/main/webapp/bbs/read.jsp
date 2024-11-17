@@ -63,7 +63,7 @@ Timestamp date = dto.getRegTM();
 							
 							<td colspan="4" id="btnAreaTd" class="read">
 								
-								<%if (uId_Session.equals(id) && uId_Session != null) { %>
+								<%if (uId_Session != null &&uId_Session.equals(id)) { %>
 								<button type="button" id="modBtn">수 정</button>
 								<button type="button" id="delBtn">삭 제</button> 
 								<% } %>
@@ -84,5 +84,11 @@ Timestamp date = dto.getRegTM();
 
 	</div>
 	<!-- div#wrap -->
+	<script>
+		if(uId_Session == null){
+			alert("로그인해야 볼수 있습니다.");
+			history.back();
+		}
+	</script>
 </body>
-</html></html>
+</html>
