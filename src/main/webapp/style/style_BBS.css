@@ -229,6 +229,7 @@ main#main>div.bbsWrite h2 {
 
 #main>.bbsWrite input,
 #main>.bbsWrite textarea  {
+<<<<<<< HEAD
 	
 	font-size: 17px;
 	padding: 4px 10px;
@@ -285,6 +286,56 @@ main#main>div.bbsRead h2 {
 	padding: 10px;
 	margin-bottom: 10px;
 	background-color: rgba(128, 0, 0, 0.1);
+=======
+	font-size: 17px;
+	padding: 4px 10px;
+}
+
+#main>.bbsWrite td.contentTD {
+	vertical-align: top;
+	padding-top: 30px;
+}
+
+
+#main>.bbsWrite span.spanFile {
+	padding: 10px;
+}
+
+
+#main>.bbsWrite label {
+	margin: 0 20px;
+	cursor: pointer;
+}
+#main>.bbsWrite label span {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#main>.bbsWrite button {
+	font-size: 16px;
+	font-weight: bold;
+	padding: 4px 20px;
+	cursor: pointer;
+}
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////// BBS 글쓰기 끝 /bbs/write.jsp ////////////////// */
+/*////////////////////////////////////////////////////////////////////*/
+
+
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/*///////////// BBS  게시글 상세보기 페이지 시작 /bbs/read.jsp ///////////// */
+/*////////////////////////////////////////////////////////////////////*/
+
+main#main>div.bbsRead h2 {
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: rgba(0, 136, 255, 0.1);
+>>>>>>> refs/remotes/origin/k-seon
 }
 
 #main>.bbsRead table#readTbl {

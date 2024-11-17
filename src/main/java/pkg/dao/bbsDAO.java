@@ -198,9 +198,6 @@ public class bbsDAO {
 		
 		return cnt;
 	}
-	
-	
-	
 	// 공지사항 끝
 
 	public void daoClose() {

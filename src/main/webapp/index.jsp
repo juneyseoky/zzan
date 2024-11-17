@@ -2,7 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%
 String uId_Session = (String) session.getAttribute("userId");
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/k-seon
 %>
 <!DOCTYPE html>
 <html>
