@@ -12,7 +12,7 @@ import java.util.Vector;
 import pkg.dto.MemberDTO;
 
 
-public class memberDAO {
+public class MemberDAO {
 	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
