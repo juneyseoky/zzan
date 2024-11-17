@@ -14,10 +14,10 @@ String uId_Session = (String) session.getAttribute("userId");
 		<div id="btnArea">
 			<button>장바구니</button>
 			<%if(uId_Session != null){ %>
-			<button id="memRegBtn">회원가입</button>
+			<button id="myPageBtn">마이페이지</button>
 			<button id="logoutBtn">로그아웃</button>
 			<%}else{ %>
-			<button id="myPageBtn">마이페이지</button>
+			<button id="memRegBtn">회원가입</button>
 			<button id="loginBtn">로그인</button>
 			<%}%>
 		</div>

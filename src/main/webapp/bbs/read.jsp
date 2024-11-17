@@ -7,7 +7,7 @@
 <%
 String uId_Session =(String) session.getAttribute("userId");
 String idx = request.getParameter("idx");
-dto = dao.selectContent(idx);
+dao.selectContent(idx);
 String title = dto.getTitle();
 String content = dto.getContent();
 String id = dto.getId();
@@ -22,9 +22,11 @@ Timestamp date = dto.getRegTM();
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>글내용 보기</title>
 <link rel="stylesheet" href="/style/style.css">
-<link rel="stylesheet" href="/style/style_BBS.css?">
+<link rel="stylesheet" href="/style/style_Template.css">
+<link rel="stylesheet" href="/style/style_BBS.css">
 <script src="/script/jquery-3.7.1.min.js"></script>
 <script src="/script/script.js"></script>
+<script src="/script/script_BBS.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -82,21 +84,5 @@ Timestamp date = dto.getRegTM();
 
 	</div>
 	<!-- div#wrap -->
-	<script>
-	$(()=>{
-		$("#modBtn").click(function(){
-			location.href = "/bbs/update.jsp?idx=<%=idx%>";
-		});
-		$("#delBtn").click(function(){
-			let deletChk = confirm("삭제하시겠습니까?");
-			if(deletChk){		
-				location.href = "/bbs/deleteBBS.jsp?idx="+<%=idx%>;
-			}else{
-				return
-			}
-		});
-	})
-	
-	</script>
 </body>
-</html>
+</html></html>
