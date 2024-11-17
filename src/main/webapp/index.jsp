@@ -13,8 +13,8 @@ String uId_Session = (String) session.getAttribute("userId");
 <body>
 
 	<div id="wrap">
-		<main id="main">
 			<jsp:include page="/ind/header.jsp" />
+		<main id="main">
 			<div id="mainImgSlideArea">
 				<div id="slideshow">
 					<img src="/images/slide/slide01.jpg" alt="slideImg"> 

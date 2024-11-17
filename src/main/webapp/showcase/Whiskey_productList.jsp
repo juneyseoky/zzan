@@ -9,6 +9,7 @@
 <%@ page import="Only_showcase.pack.Product" %>
 
 <%
+	String pType = request.getParameter("productType");
     List<Product> productList = new ArrayList<>();
     Connection conn = null;
     PreparedStatement pstmt = null;
@@ -16,7 +17,8 @@
 
     try {
         conn = DBUtill.getConnection(); // DB 연결
-        String sql = "SELECT subject, price, content, stored_filename FROM product"; // 'uploaded_files'를 'product'로 변경
+        String sql = "SELECT subject, price, content, stored_filename FROM product where category = "; // 'uploaded_files'를 'product'로 변경
+    			sql += pType; 
         pstmt = conn.prepareStatement(sql);
         rs = pstmt.executeQuery();
 
@@ -25,7 +27,7 @@
             product.setProductName(rs.getString("subject")); // 상품명
             product.setPrice(rs.getString("price")); // 가격
             product.setDescription(rs.getString("content")); // 설명
-            product.setImagePath("../images/wisky/" + rs.getString("stored_filename")); // 이미지 경로 수정
+            product.setImagePath("../images/whisky/" + rs.getString("stored_filename")); // 이미지 경로 수정
             productList.add(product);
         }
     } catch (SQLException e) {
@@ -41,8 +43,7 @@
 <head>
     <meta charset="UTF-8">
     <title>위스키 목록</title>
-    <link rel="stylesheet" href="style/style_showcase.css?v=<%= System.currentTimeMillis() %>"> <!-- 기존 스타일 -->
-    <link rel="stylesheet" href="/style/style.css"> <!-- header 스타일 -->
+    <link rel="stylesheet" href="/showcase/style/style_showcase.css?v=<%= System.currentTimeMillis() %>">
 </head>
 <body>
     <div id="wrap">
@@ -81,20 +82,11 @@
             <button type="button" onclick="location.href='register.jsp'">상품 등록</button>
             <button type="button" class="home-btn" onclick="location.href='../index.jsp'">홈으로 돌아가기</button>
         </div>
-        <!-- 푸터 추가 -->
-        <footer id="footer" class="dFlex">
-            <div id="LogoArea">
-                <img src="/images/Logo.jpg" alt="Logo">
-            </div>
-            <div id="footerTxtArea">
-                <span>lasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
-            </div>
-            <div id="adminArea">
-                <a href="#"><img alt="" src="/images/goAdmin_200.jpg"></a>
-            </div>
-        </footer>
+         <!-- 푸터 추가 -->
+        <jsp:include page="/ind/footer.jsp"/>
     </div>
-    <script src="script/jquery-3.7.1.min.js"></script>
+    <script src="/script/jquery-3.7.1.min.js"></script>
+    <script src="/script/script.js"></script>
     <script>
         function deleteProduct(imagePath, productName) {
             if (confirm("정말로 이 제품을 삭제하시겠습니까?")) {

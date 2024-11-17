@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <title>파일 업로드 결과창</title>
-    <link rel="stylesheet" href="../showcase/style/style_showcase.css">
+    <link rel="stylesheet" href="/showcase/style/style_showcase.css?v=<%= System.currentTimeMillis() %>">
 </head>
 <body>
     <div id="wrap">

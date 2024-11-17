@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>파일 삭제 결과창</title>
-    <link rel="stylesheet" href="../showcase/style/style_showcase.css">
+    <link rel="stylesheet" href="/showcase/style/style_showcase.css?v=<%= System.currentTimeMillis() %>">
 </head>
 <body>
     <div id="wrap">
@@ -23,7 +23,7 @@
         boolean productDeleted = false;
 
         if (fileName != null && !fileName.isEmpty()) {
-            String filePath = application.getRealPath("/") + "images/wisky/" + new File(fileName).getName();
+            String filePath = application.getRealPath("/") + "images/whisky/" + new File(fileName).getName();
             File file = new File(filePath);
 
             if (file.exists() && file.delete()) {

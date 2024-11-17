@@ -9,6 +9,7 @@
 <%@ page import="Only_showcase.pack.Product" %>
 
 <%
+	String pType = request.getParameter("productType");
     List<Product> productList = new ArrayList<>();
     Connection conn = null;
     PreparedStatement pstmt = null;
@@ -16,8 +17,9 @@
 
     try {
         conn = DBUtill.getConnection(); // DB 연결
-        String sql = "SELECT subject, price, content, stored_filename FROM uploaded_files WHERE category = 'vodka'"; // 보드카만 선택
+        String sql = "SELECT subject, price, content, stored_filename FROM product WHERE category = ?";// 보드카만 선택
         pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, pType);
         rs = pstmt.executeQuery();
 
         while (rs.next()) {
@@ -25,9 +27,9 @@
             product.setProductName(rs.getString("subject")); // 상품명
             product.setPrice(rs.getString("price")); // 가격
             product.setDescription(rs.getString("content")); // 설명
-            product.setImagePath("../images/vodka/" + rs.getString("stored_filename")); // 이미지 경로 수정
+            product.setImagePath("../images/"+pType+"/"+ rs.getString("stored_filename")); // 이미지 경로 수정
             productList.add(product);
-        }
+       }
     } catch (SQLException e) {
         e.printStackTrace();
     } finally {
@@ -40,17 +42,17 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>보드카 목록</title>
-    <link rel="stylesheet" href="style/style_showcase.css?v=<%= System.currentTimeMillis() %>"> <!-- 기존 스타일 -->
+    <title><%=pType%> 목록</title>
+    <link rel="stylesheet" href="/showcase/style/style_showcase.css?v=<%= System.currentTimeMillis() %>">
     <link rel="stylesheet" href="/style/style.css"> <!-- header 스타일 -->
 </head>
 <body>
     <div id="wrap">
         <jsp:include page="/ind/header.jsp" /> <!-- 헤더 추가 -->
         <div class="main-image-container">
-            <img src="../images/bodca/main.jpg" alt="대문 이미지" class="main-image">
+            <img src="../images/<%=pType%>/main.jpg" alt="대문 이미지" class="main-image">
         </div>
-        <h1>보드카 제품 목록</h1>
+        <h1><%=pType%> 목록</h1>
         <hr>
         <div id="productList">
             <%
@@ -82,19 +84,10 @@
             <button type="button" class="home-btn" onclick="location.href='../index.jsp'">홈으로 돌아가기</button>
         </div>
         <!-- 푸터 추가 -->
-        <footer id="footer" class="dFlex">
-            <div id="LogoArea">
-                <img src="/images/Logo.jpg" alt="Logo">
-            </div>
-            <div id="footerTxtArea">
-                <span>lasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
-            </div>
-            <div id="adminArea">
-                <a href="#"><img alt="" src="/images/goAdmin_200.jpg"></a>
-            </div>
-        </footer>
+        <jsp:include page="/ind/footer.jsp"/>
     </div>
-    <script src="script/jquery-3.7.1.min.js"></script>
+    <script src="/script/jquery-3.7.1.min.js"></script>
+    <script src="/script/script.js"></script>
     <script>
         function deleteProduct(imagePath, productName) {
             if (confirm("정말로 이 제품을 삭제하시겠습니까?")) {

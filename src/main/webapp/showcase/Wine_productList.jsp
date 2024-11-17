@@ -16,7 +16,7 @@
 
     try {
         conn = DBUtill.getConnection(); // DB 연결
-        String sql = "SELECT subject, price, content, stored_filename FROM uploaded_files WHERE category = 'wine'"; // 와인만 선택
+        String sql = "SELECT subject, price, content, stored_filename FROM product WHERE category = 'wine'"; // 와인만 선택
         pstmt = conn.prepareStatement(sql);
         rs = pstmt.executeQuery();
 
@@ -41,14 +41,13 @@
 <head>
     <meta charset="UTF-8">
     <title>와인 목록</title>
-    <link rel="stylesheet" href="style/style_showcase.css?v=<%= System.currentTimeMillis() %>"> <!-- 기존 스타일 -->
-    <link rel="stylesheet" href="/style/style.css"> <!-- header 스타일 -->
+    <link rel="stylesheet" href="/showcase/style/style_showcase.css?v=<%= System.currentTimeMillis() %>"> <!-- 기존 스타일 -->
 </head>
 <body>
     <div id="wrap">
         <jsp:include page="/ind/header.jsp" /> <!-- 헤더 추가 -->
         <div class="main-image-container">
-            <img src="../images/wine/main.jpg" alt="대문 이미지" class="main-image">
+            <img src="/images/wine/main.jpg" alt="대문 이미지" class="main-image">
         </div>
         <h1>와인 제품 목록</h1>
         <hr>
@@ -82,19 +81,10 @@
             <button type="button" class="home-btn" onclick="location.href='../index.jsp'">홈으로 돌아가기</button>
         </div>
         <!-- 푸터 추가 -->
-        <footer id="footer" class="dFlex">
-            <div id="LogoArea">
-                <img src="/images/Logo.jpg" alt="Logo">
-            </div>
-            <div id="footerTxtArea">
-                <span>lasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
-            </div>
-            <div id="adminArea">
-                <a href="#"><img alt="" src="/images/goAdmin_200.jpg"></a>
-            </div>
-        </footer>
+        <jsp:include page="/ind/footer.jsp"/>
     </div>
-    <script src="script/jquery-3.7.1.min.js"></script>
+    <script src="/script/jquery-3.7.1.min.js"></script>
+    <script src="/script/script.js"></script>
     <script>
         function deleteProduct(imagePath, productName) {
             if (confirm("정말로 이 제품을 삭제하시겠습니까?")) {

@@ -41,14 +41,14 @@
 <head>
     <meta charset="UTF-8">
     <title>전통주 목록</title>
-    <link rel="stylesheet" href="style/style_showcase.css?v=<%= System.currentTimeMillis() %>"> <!-- 기존 스타일 -->
+    <link rel="stylesheet" href="/showcase/style/style_showcase.css?v=<%= System.currentTimeMillis() %>">
     <link rel="stylesheet" href="/style/style.css"> <!-- header 스타일 -->
 </head>
 <body>
     <div id="wrap">
         <jsp:include page="/ind/header.jsp" /> <!-- 헤더 추가 -->
         <div class="main-image-container">
-            <img src="../images/sake/main.jpg" alt="대문 이미지" class="main-image">
+            <img src="/images/traditional/main.jpg" alt="대문 이미지" class="main-image">
         </div>
         <h1>전통주 제품 목록</h1>
         <hr>
@@ -82,17 +82,7 @@
             <button type="button" class="home-btn" onclick="location.href='../index.jsp'">홈으로 돌아가기</button>
         </div>
         <!-- 푸터 추가 -->
-        <footer id="footer" class="dFlex">
-            <div id="LogoArea">
-                <img src="/images/Logo.jpg" alt="Logo">
-            </div>
-            <div id="footerTxtArea">
-                <span>lasdfasdfasdfasdfasdfasdfasdfasdfasdf</span>
-            </div>
-            <div id="adminArea">
-                <a href="#"><img alt="" src="/images/goAdmin_200.jpg"></a>
-            </div>
-        </footer>
+        <jsp:include page="/ind/footer.jsp"/>
     </div>
     <script src="script/jquery-3.7.1.min.js"></script>
     <script>

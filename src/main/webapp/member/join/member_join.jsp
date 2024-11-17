@@ -30,7 +30,7 @@
 		                    <td class="title">아이디</td>
 		                    <td>
 		                    <div class="input-container">
-		                        <input class="textArea" type="text" name="mId maxlength="20"
+		                        <input class="textArea" type="text" name="mId" maxlength="20"
 		                        placeholder="대,소문자와 숫자만">
 		                       <button class="textbtn" type="button" onclick="idDuplChk()">중복확인</button>
 		                       </div>
@@ -89,6 +89,7 @@
 		        </div>
 		    </form>
 	    </div>
+	    <jsp:include page="/ind/footer.jsp"/>
     </div>
     <script>
     	

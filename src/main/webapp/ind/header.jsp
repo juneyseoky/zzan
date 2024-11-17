@@ -3,6 +3,7 @@
 <%
 String uId_Session = (String) session.getAttribute("userId");
 %>
+<link rel="stylesheet" href="/style/header_style.css?v">
 <header id="header">
 	<div id="h_top" class="dFlex">
 		<div id="searchArea">
@@ -11,9 +12,9 @@ String uId_Session = (String) session.getAttribute("userId");
 		</div>
 		<a href="/index.jsp"><img alt="Logo"
 			src="/images/Logo-removebg.png"></a>
-		<div id="btnArea">
-			<button>장바구니</button>
+		<div id="H_btnArea">
 			<%if(uId_Session != null){ %>
+			<button id="cart">장바구니</button>
 			<button id="myPageBtn">마이페이지</button>
 			<button id="logoutBtn">로그아웃</button>
 			<%}else{ %>
@@ -26,29 +27,29 @@ String uId_Session = (String) session.getAttribute("userId");
 		<div id="mainMenus">
 			<ul id="mainMenu" class="dFlex">
 				 <!-- 기존의 '위스키' 메뉴 항목 -->
-                <li><a href="../showcase/Whiskey_productList.jsp">위스키</a>
+                <li class="whisky">위스키
                     <ul class="subMenus">
-                        <li>임페리얼</li>
-                        <li>패스포트</li>
+                        <li class="whisky">임페리얼</li>
+                        <li class="whisky">패스포트</li>
                     </ul>
                 </li>
                 <!-- 새로 추가한 '와인' 메뉴 항목 -->
-                <li><a href="../showcase/Wine_productList.jsp">와인</a>
+                <li class="wine">와인
                     <ul class="subMenus">
-                        <li>무똥까네</li>
+                        <li class="wine">무똥까네</li>
                     </ul>
                 </li>
                 <!-- 새로 추가한 '보드카' 메뉴 항목 -->
-                <li><a href="../showcase/Vodka_productList.jsp">보드카</a>
+                <li class="bodca">보드카
                     <ul class="subMenus">
-                        <li>앱솔루트</li>
+                        <li class="bodca">앱솔루트</li>
                     </ul>
                 </li>
                 <!-- 새로 추가한 '전통주' 메뉴 항목 -->
-                <li><a href="../showcase/traditional_productList.jsp">전통주</a>
+                <li class="traditional">전통주
                     <ul class="subMenus">
-                        <li>고운달</li>
-                        <li>문배</li>
+                        <li class="traditional">고운달</li>
+                        <li class="traditional">문배</li>
                     </ul>
                 </li>
 				<li id="board" class="bbs">게시판
