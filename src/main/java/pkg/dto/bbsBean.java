@@ -3,6 +3,7 @@ package pkg.dto;
 import java.sql.Timestamp;
 
 public class bbsBean {
+
 	private int idx;
 	private String title;
 	private String content;
@@ -39,7 +40,5 @@ public class bbsBean {
 	public void setRegTM(Timestamp regTM) {
 		this.regTM = regTM;
 	}
-	
-	
-	
+		
 }

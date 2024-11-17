@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="dto" class="pkg.dto.bbsBean"/>
 <jsp:useBean id="dao" class="pkg.dao.bbsDAO"/>
-<jsp:useBean id="memDao" class="pkg.dao.memberDAO"/>
+<jsp:useBean id="memDao" class="pkg.dao.MemberDAO"/>
 <%
 String uId_Session =(String) session.getAttribute("userId");
 String idx = request.getParameter("idx");

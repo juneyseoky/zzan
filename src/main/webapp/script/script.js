@@ -45,4 +45,5 @@ function goAdmin() {
 
 function read(idx){
 	location.href = "/bbs/read.jsp?idx="+idx;
+
 }

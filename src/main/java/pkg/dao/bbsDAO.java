@@ -203,6 +203,7 @@ public class bbsDAO {
 	
 	// 공지사항 끝
 
+
 	public void daoClose() {
 		try {
 			if(conn != null) conn.close();
