@@ -40,7 +40,5 @@ public class bbsBean {
 	public void setRegTM(Timestamp regTM) {
 		this.regTM = regTM;
 	}
-	
-	
-	
+
 }

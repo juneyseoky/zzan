@@ -15,6 +15,7 @@
     boolean loginSuccess = false;
 
     try {
+
     	Class.forName("com.mysql.cj.jdbc.Driver");
         conn = DriverManager.getConnection(Url, uId, uPw);
         

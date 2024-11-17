@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:useBean id="dao" class="pkg.dao.memberDAO"></jsp:useBean>
+
+<jsp:useBean id="dao" class="pkg.dao.MemberDAO"/>
+
 <%
 String mId = (String) session.getAttribute("userId");
 String mName = dao.getMemberName(mId);

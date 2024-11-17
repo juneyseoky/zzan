@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:useBean id="dao" class="pkg.dao.memberDAO"/>
+<jsp:useBean id="dao" class="pkg.dao.MemberDAO"/>
 <%
 String pageType =request.getParameter("pageType");
 String mId = (String) session.getAttribute("userId");

@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="dto" class="pkg.dto.bbsBean"/>
 <jsp:useBean id="dao" class="pkg.dao.bbsDAO"/>
-<jsp:useBean id="memDao" class="pkg.dao.memberDAO"/>
+<jsp:useBean id="memDao" class="pkg.dao.MemberDAO"/>
 <%
 String uId_Session =(String) session.getAttribute("userId");
 String idx = request.getParameter("idx");
@@ -63,6 +63,7 @@ Timestamp date = dto.getRegTM();
 							
 							<td colspan="4" id="btnAreaTd" class="read">
 								
+
 								<%if (uId_Session != null &&uId_Session.equals(id)) { %>
 								<button type="button" id="modBtn">수 정</button>
 								<button type="button" id="delBtn">삭 제</button> 

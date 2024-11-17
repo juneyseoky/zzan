@@ -134,6 +134,7 @@ public class memberDAO {
 		
 		return mName;
 	}
+	
 	public void daoClose() {
 		try {
 			if(conn != null) conn.close();
