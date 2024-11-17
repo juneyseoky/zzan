@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+String uId_Session = (String) session.getAttribute("userId");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +12,8 @@
 <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
-	<div id="wrap">
 
+	<div id="wrap">
 		<main id="main">
 			<jsp:include page="/ind/header.jsp" />
 			<div id="mainImgSlideArea">

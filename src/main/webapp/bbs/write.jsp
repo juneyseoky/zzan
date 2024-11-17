@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:useBean id="dao" class="pkg.dao.memberDAO"></jsp:useBean>
+<%
+String mId = (String) session.getAttribute("userId");
+String mName = dao.getMemberName(mId);
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,7 +13,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>글쓰기</title>
 <link rel="stylesheet" href="/style/style.css">
-<link rel="stylesheet" href="/style/style_Template.css">
 <link rel="stylesheet" href="/style/style_BBS.css">
 <script src="/script/jquery-3.7.1.min.js"></script>
 <script src="/script/script.js"></script>
@@ -25,21 +29,20 @@
 							<tbody>
 								<tr>
 									<td class="req">성명</td>
-									<td>테스트 
-										<input type="hidden" name="bMemId" value="id">
+									<td><%=mName %> 
+										<input type="hidden" name="id" value="<%=mId%>">
 									</td>
 								</tr>
 								<tr>
 									<td class="req">제목</td>
 									<!-- td.req 필수입력 -->
-									<td><input type="text" name="bTitle" maxlength="50"
+									<td><input type="text" name="title" maxlength="50"
 										id="subject"></td>
 								</tr>
 								<tr>
 									<td class="contentTD">내용</td>
 									<td>
-										<textarea name="content" id="bContent" cols="60" wrap="hard">
-										</textarea>
+										<textarea name="content" id="content" cols="60" wrap="hard" rows="20"></textarea>
 									</td>
 								</tr>
 							</tbody>
