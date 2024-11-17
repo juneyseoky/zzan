@@ -19,7 +19,6 @@ int cnt = 0;
 <meta name="viewport" content="width=device-width,  initial-scale=1.0">
 <title>문의사항 목록</title>
 <link rel="stylesheet" href="/style/style.css">
-<link rel="stylesheet" href="/style/style_Template.css">
 <link rel="stylesheet" href="/style/style_BBS.css">
 <script src="/script/jquery-3.7.1.min.js"></script>
 <script src="/script/script.js"></script>
@@ -96,5 +95,17 @@ for (int i = 0; i < list.size(); i++) {
 		</main>
 		<%@  include file="/ind/footer.jsp"%>
 	</div>
+	<script>
+	let writeBtnDom = document.querySelector("#writeBtn");
+	const mId = "<%= (String) session.getAttribute("userId") %>";
+	writeBtnDom.addEventListener("click", function(){
+		if(!mId || mId === "null"){
+			alert("로그인해야 사용하실 수 있습니다.");
+		}else{
+			location.href="/bbs/write.jsp";
+		}
+	});
+
+	</script>
 </body>
 </html>

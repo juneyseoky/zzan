@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <title> 상품 등록 페이지 </title>
     <link rel="stylesheet" href="style/style_showcase.css?v=<%= System.currentTimeMillis() %>">
+    <link rel="stylesheet" href="/style/style.css?v">
 </head>
 <body>
     <div id="wrap">
+    	<jsp:include page="/ind/header.jsp"/>
         <h1>상품 등록</h1>
         <form action="uploadProduct.jsp" method="post" enctype="multipart/form-data">
             <label>
@@ -25,6 +27,15 @@
             <label>
                 <span>상품설명</span>
                 <textarea name="description"></textarea>
+            </label>
+            <label>
+                <span>상품종류</span>
+                	<select name="category">
+                		<option value="whisky" selected>위스키</option>
+                		<option value="wine">와인</option>
+                		<option value="bodca">보드카</option>
+                		<option value="traditional">전통주</option>
+                	</select>
             </label>
             <hr>
             <div id="btnArea">

@@ -18,9 +18,7 @@ $(function() {
 	$("#loginBtn").click(function(){
 		location.href = "/member/Login.jsp";
 	});
-	$("#writeBtn").click(function(){
-		location.href = "/bbs/write.jsp";
-	});
+
 	
 	$("#regBtn").click(function(){
 		let subject = $("#subject").val().trim();		

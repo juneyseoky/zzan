@@ -42,7 +42,7 @@
     <meta charset="UTF-8">
     <title>와인 목록</title>
     <link rel="stylesheet" href="style/style_showcase.css?v=<%= System.currentTimeMillis() %>"> <!-- 기존 스타일 -->
-    <link rel="stylesheet" href="/style/header.css"> <!-- header 스타일 -->
+    <link rel="stylesheet" href="/style/style.css"> <!-- header 스타일 -->
 </head>
 <body>
     <div id="wrap">

@@ -2,8 +2,8 @@
 @import url(style_Reset.css);
 
 /* 전체 레이아웃 */
-div#wrap {
-  width: 1880px; /* 기존: 100% */
+/* div#wrap {
+  width: 1880px; 기존: 100%
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -12,8 +12,8 @@ div#wrap {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center; /* 중앙 정렬 */
-}
+  align-items: center; 중앙 정렬
+} */
 
 /* 메인 이미지 */
 .main-image-container {

@@ -13,7 +13,6 @@ String mName = dao.getMemberName(mId);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>글쓰기</title>
 <link rel="stylesheet" href="/style/style.css">
-<link rel="stylesheet" href="/style/style_Template.css">
 <link rel="stylesheet" href="/style/style_BBS.css">
 <script src="/script/jquery-3.7.1.min.js"></script>
 <script src="/script/script.js"></script>

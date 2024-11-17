@@ -36,9 +36,19 @@ Timestamp date = dto.getRegTM();
 			<!-- 실제 작업 영역 시작 -->
 			<div id="contents" class="bbsRead">
 				<!--  게시글 상세보기 페이지 내용 출력 시작 -->
-				<h2><%=title%></h2>
+				<h2>글 수정하기</h2>
+				<form action="/bbs/updateProc.jsp" method="post">
 				<table id="readTbl">
 					<tbody id="readTblBody">
+						<tr>
+							<td>
+								글제목
+							</td>
+							<td>
+							<input type="hidden" name="idx" value="<%=idx%>">
+							<input style="font-size: 18px;border: none; padding: 4px 0;"type="text" name="title" value="<%=title%>" autofocus>
+							</td>
+						</tr>
 						<tr>
 							<td>작성자</td>
 							<td><%=name%></td>
@@ -47,7 +57,9 @@ Timestamp date = dto.getRegTM();
 						</tr>
 						
 						<tr>
-							<td colspan="4" id="readContentTd"><pre><%=content%></pre></td>
+							<td colspan="4" id="readContentTd">
+							<textarea cols="110" wrap="hard" rows="20" name="content"><%=content%></textarea>
+							</td>
 						</tr>
 					</tbody>
 					<tfoot id="readTblFoot">
@@ -60,15 +72,13 @@ Timestamp date = dto.getRegTM();
 						<tr>
 							
 							<td colspan="4" id="btnAreaTd" class="read">
-								
-								<%if (uId_Session.equals(id) && uId_Session != null) { %>
-								<button type="button" id="modBtn">수 정</button>
+								<button type="submit" id="modBtn">수 정</button>
 								<button type="button" id="delBtn">삭 제</button> 
-								<% } %>
 							</td>
 						</tr>
 					</tfoot>
 				</table>
+				</form>
 				
 			</div>
 			<!-- 실제 작업 영역 끝 -->
@@ -82,21 +92,16 @@ Timestamp date = dto.getRegTM();
 
 	</div>
 	<!-- div#wrap -->
-	<script>
-	$(()=>{
-		$("#modBtn").click(function(){
-			location.href = "/bbs/update.jsp?idx=<%=idx%>";
-		});
-		$("#delBtn").click(function(){
-			let deletChk = confirm("삭제하시겠습니까?");
-			if(deletChk){		
-				location.href = "/bbs/deleteBBS.jsp?idx="+<%=idx%>;
-			}else{
-				return
-			}
-		});
-	})
 	
-	</script>
+<script>
+$("#delBtn").click(function(){
+	let deletChk = confirm("삭제하시겠습니까?");
+	if(deletChk){		
+		location.href = "/bbs/deleteBBS.jsp?idx="+<%=idx%>;
+	}else{
+		return
+	}
+});
+</script>
 </body>
 </html>

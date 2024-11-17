@@ -19,7 +19,7 @@
         <hr>
         <br>
         <%
-        String fileStorage = application.getRealPath("/") + "images/wisky/";
+        String fileStorage = application.getRealPath("/") + "images/whisky/";
         int maxSize = 10 * 1024 * 1024; // 최대 파일 크기 10MB
         String encType = "UTF-8";
         MultipartRequest multiReq = null;

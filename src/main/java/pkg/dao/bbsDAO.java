@@ -88,7 +88,7 @@ public class bbsDAO {
 		return chk;
 	}
 	
-	public void selectContent(String idx) {
+	public bbsBean selectContent(String idx) {
 		bbsBean bean = new bbsBean();
 		try {
 			conn = DBCP.DBconnection();
@@ -109,7 +109,48 @@ public class bbsDAO {
 		}finally {
 			daoClose();
 		}
+		return bean;
+	}
+	
+	public boolean updateContent(String idx, String title, String content) {
+		boolean res = false;
 		
+		try {
+			int idxNum = Integer.parseInt(idx);
+			conn = DBCP.DBconnection();
+			String sql = "update bbs set title= ?, content=? where idx =?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, idxNum);
+			int rs = pstmt.executeUpdate();
+			if(rs == 1) res = true;
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			daoClose();			
+		}
+		
+		return res;
+	}
+	
+	public boolean deleteBBS(int idx) {
+		boolean reChk = false;
+		try {
+			conn = DBCP.DBconnection();
+			String sql = "delete from bbs where idx = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			
+			int rsNum = pstmt.executeUpdate();
+			if(rsNum == 1) reChk = true;
+					
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			daoClose();
+		}
+		return reChk;
 	}
 	
 	// 공지사항 시작

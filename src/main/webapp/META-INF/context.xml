@@ -10,7 +10,7 @@
 			useSSL=false&amp;
 			useUnicode=true&amp;
 			serverTimezone=Asia/Seoul&amp;
-			characterEncoding=UTF8&amp;
+			characterEncoding=UTF-8&amp;
 			allowPublicKeyRetrieval=true&amp;
 			autoReconnect=true"
 		username="root"

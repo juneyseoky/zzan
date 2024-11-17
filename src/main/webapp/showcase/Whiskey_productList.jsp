@@ -42,13 +42,13 @@
     <meta charset="UTF-8">
     <title>위스키 목록</title>
     <link rel="stylesheet" href="style/style_showcase.css?v=<%= System.currentTimeMillis() %>"> <!-- 기존 스타일 -->
-    <link rel="stylesheet" href="/style/header.css"> <!-- header 스타일 -->
+    <link rel="stylesheet" href="/style/style.css"> <!-- header 스타일 -->
 </head>
 <body>
     <div id="wrap">
         <jsp:include page="/ind/header.jsp" /> <!-- 헤더 추가 -->
         <div class="main-image-container">
-            <img src="../images/wisky/Imperial_main.jpg" alt="대문 이미지" class="main-image">
+            <img src="/images/whisky/Imperial_main.jpg" alt="대문 이미지" class="main-image">
         </div>
         <h1>위스키 [ 임페리얼 ]</h1>
         <hr>

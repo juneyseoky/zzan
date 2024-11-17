@@ -15,7 +15,7 @@
     boolean loginSuccess = false;
 
     try {
-        Class.forName("com.mysql.jdbc.Driver");
+    	Class.forName("com.mysql.cj.jdbc.Driver");
         conn = DriverManager.getConnection(Url, uId, uPw);
         
         String sql = "SELECT * FROM member WHERE mId = ? AND mPw = ?";

@@ -272,12 +272,19 @@ main#main>div.bbsWrite h2 {
 /*////////////////////////////////////////////////////////////////////*/
 /*///////////// BBS  게시글 상세보기 페이지 시작 /bbs/read.jsp ///////////// */
 /*////////////////////////////////////////////////////////////////////*/
+main#main>div.bbsRead{
+	
+width: 860px;
+	padding: 20px;
+	/*border: 1px solid #f80;*/
+	margin: 0 auto;
+}
 
 main#main>div.bbsRead h2 {
 	text-align: center;
 	padding: 10px;
 	margin-bottom: 10px;
-	background-color: rgba(0, 136, 255, 0.1);
+	background-color: rgba(128, 0, 0, 0.1);
 }
 
 #main>.bbsRead table#readTbl {
