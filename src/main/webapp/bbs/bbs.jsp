@@ -22,7 +22,6 @@ int cnt = 0;
 <link rel="stylesheet" href="/style/style_BBS.css">
 <script src="/script/jquery-3.7.1.min.js"></script>
 <script src="/script/script.js"></script>
-<script src="/script/script_BBS.js"></script>
 </head>
 <body>
 	<div id="wrap">

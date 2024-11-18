@@ -24,7 +24,7 @@
         conn = DriverManager.getConnection(url, uid, upw);
 
         // Fetch cart items for the logged-in user
-        String sql = "SELECT p.pName, cp.cpQuantity, p.price, (p.price * cp.cpQuantity) AS subtotal, (p.price * cp.cpQuantity * 0.05) AS points, cp.cpPrCode " +
+        String sql = "SELECT p.subject, cp.cpQuantity, p.price, (p.price * cp.cpQuantity) +AS subtotal, (p.price * cp.cpQuantity * 0.05) AS points, cp.cpPrCode " +
                      "FROM Cart c " +
                      "JOIN CartProduct cp ON c.cartCode = cp.cartCode " +
                      "JOIN Product p ON cp.cpPrCode = p.pCode " +
