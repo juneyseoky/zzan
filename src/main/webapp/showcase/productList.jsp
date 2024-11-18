@@ -17,17 +17,18 @@
 
     try {
         conn = DBUtill.getConnection(); // DB 연결
-        String sql = "SELECT subject, price, content, stored_filename FROM product WHERE category = ?";// 보드카만 선택
+        String sql = "SELECT id, subject, price, content, stored_filename FROM product WHERE category = ?";// 보드카만 선택
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, pType);
         rs = pstmt.executeQuery();
 
         while (rs.next()) {
             Product product = new Product();
-            product.setProductName(rs.getString("subject")); // 상품명
+            product.setId(rs.getInt("id"));
+            product.setSubject(rs.getString("subject")); // 상품명
             product.setPrice(rs.getString("price")); // 가격
-            product.setDescription(rs.getString("content")); // 설명
-            product.setImagePath("../images/"+pType+"/"+ rs.getString("stored_filename")); // 이미지 경로 수정
+            product.setContent(rs.getString("content")); // 설명
+            product.setStored_filename("/images/"+ rs.getString("stored_filename")); // 이미지 경로 수정
             productList.add(product);
        }
     } catch (SQLException e) {
@@ -61,14 +62,14 @@
             %>
             <div class="product">
                 <div class="product-image">
-                  <img src="<%= product.getImagePath() %>" alt="제품 이미지" class="product-image"> <!-- 이미지 경로 수정 -->
+                  <img src="<%= product.getStored_filename() %>" alt="제품 이미지" class="product-image"> <!-- 이미지 경로 수정 -->
                 </div>
                 <div class="product-info">
-                    <p class="product-name">상품명: <%= product.getProductName() %></p>
+                    <p class="product-name">상품명: <%= product.getSubject() %></p>
                     <p class="product-price">가격: <%= product.getPrice() %> 원</p>
-                    <p class="product-description">설명: <%= product.getDescription() %></p>
+                    <p class="product-description">설명: <%= product.getContent() %></p>
                 </div>
-                <button type="button" class="delete-btn" onclick="deleteProduct('<%= product.getImagePath() %>', '<%= product.getProductName() %>')">삭제</button>
+                <button type="button" class="delete-btn" onclick="deleteProduct('<%= product.getId() %>')">삭제</button>
             </div>
             <% 
                 }
@@ -89,9 +90,9 @@
     <script src="/script/jquery-3.7.1.min.js"></script>
     <script src="/script/script.js"></script>
     <script>
-        function deleteProduct(imagePath, productName) {
+        function deleteProduct(id) {
             if (confirm("정말로 이 제품을 삭제하시겠습니까?")) {
-                location.href = 'deleteFile.jsp?fileName=' + encodeURIComponent(imagePath) + '&productName=' + encodeURIComponent(productName);
+                location.href = 'deleteFile.jsp?idx=' + id;
             }
         }
     </script>

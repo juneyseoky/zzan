@@ -66,6 +66,7 @@ $(function() {
 	
 	});
 	
+	
 	$("#logoutBtn").click(function(){
 		location.href = "/member/LogoutProc.jsp";
 	});
@@ -77,6 +78,7 @@ function goAdmin() {
 }
 
 function read(idx){
+	
 	location.href = "/bbs/read.jsp?idx="+idx;
 
 }

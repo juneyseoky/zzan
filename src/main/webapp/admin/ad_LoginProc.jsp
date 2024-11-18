@@ -13,7 +13,7 @@ boolean chk = dao.selectAdmin(id, pw);
 
 <%
 if(chk){%>
-	location.href = "/showcase/register.jsp";
+	location.href = "/showcase/productList.jsp?productType=";
 <%}else{%>
 	alert("비밀번호가 틀렸습니다.");
 	history.back();
